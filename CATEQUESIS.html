@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catequesis</title>
+    <title>Cataquesis</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
         /* Colores */
@@ -17,93 +17,103 @@
         }
 
         /* Navbar */
-       
-		  .navbar {
-    background-color: rgba(0, 0, 0, 0.3); /* Color negro con 60% de opacidad */
-    transition: background-color 0.4s ease-in-out;
-    font-family: 'Times New Roman', serif; /* Cambio a Times New Roman */
-}
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.3); /* Color negro con 60% de opacidad */
+            transition: background-color 0.4s ease-in-out;
+            font-family: 'Times New Roman', serif;
+        }
 
         .navbar.scrolled {
             background-color: var(--primary-color); /* Amarillo suave al hacer scroll */
         }
+
         .navbar-brand img {
             height: 50px;
             width: 50px;
             border-radius: 50%; /* Imagen del logo redondeada */
         }
+
         .nav-link {
-            color: var(--navbar-text-color) !important; /* Color del texto en el navbar */
+            color: var(--navbar-text-color) !important;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1rem; /* Reducido para móviles */
         }
 
-        /* Efecto hover para resaltar los enlaces del navbar */
         .nav-link:hover {
             color: var(--accent-color) !important;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Resaltar con sombra sutil */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
             transition: all 0.3s ease-in-out;
         }
 
         /* Carrusel */
         .carousel-item {
-            height: 80vh;
+            height: 100vh;
             background-size: cover;
             background-position: center;
         }
 
+        .carousel-caption {
+            bottom: 15%; /* Ajuste para móviles */
+        }
+
         .carousel-caption h1 {
-            font-size: 3.5rem;
+            font-size: calc(1.5rem + 1vw); /* Adaptable */
             font-weight: bold;
             color: var(--primary-color);
-			font-family: 'Times New Roman', serif;
+            font-family: 'Times New Roman', serif;
         }
 
-        .carousel-caption p {
-            font-size: 1.5rem;
+        .carousel-caption h2 {
+            font-size: calc(1rem + 0.5vw); /* Adaptable */
             color: var(--secondary-color);
         }
 
-        /* Botones del carrusel */
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            background-color: var(--warning-color); /* Verde oscuro */
-            border-radius: 50%;
-            padding: 10px;
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            .carousel-caption h1 {
+                font-size: 1.5rem; /* Más pequeño para móviles */
+            }
+
+            .carousel-caption h2 {
+                font-size: 1rem;
+            }
+
+            .nav-link {
+                font-size: 0.9rem; /* Ajuste para texto del menú */
+            }
+
+            .historia h1 {
+                font-size: 1.8rem; /* Encabezado más pequeño */
+            }
+
+            .historia p {
+                font-size: 0.9rem; /* Texto más pequeño */
+                line-height: 1.5; /* Espaciado ajustado */
+            }
+
+            .footer {
+                font-size: 0.9rem; /* Texto reducido en el pie */
+            }
+
+            .navbar-brand h3 {
+                font-size: 1rem; /* Texto reducido */
+            }
         }
 
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            filter: invert(100%); /* Hacemos los iconos blancos */
-        }
+        @media (max-width: 576px) {
+            .carousel-item {
+                height: 70vh; /* Carrusel más pequeño */
+            }
 
-        .carousel-control-prev,
-        .carousel-control-next {
-            outline: none; /* Sin color en el borde de los botones */
-            box-shadow: none; /* Sin sombra */
-        }
+            .carousel-caption {
+                bottom: 10%; /* Ajuste adicional */
+            }
 
-        /* Sección Historia */
-        .historia h1 {
-          font-family: 'Times New Roman', serif;
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: var(--secondary-color); /* Azul oscuro */
-        }
-
-        .historia p {
-            font-family: 'Arial', sans-serif;
-            font-size: 1.2rem;
-            line-height: 1.7;
-            color: var(--text-color); /* Color de texto oscuro */
-        }
-
-        /* Pie de página */
-        .footer {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            text-align: center;
-            padding: 10px;
+            .historia h1,
+            .historia p {
+                text-align: justify;
+                margin: 0 10px; /* Espaciado lateral */
+            }
         }
 
         /* Fondo del sitio */
@@ -111,34 +121,29 @@
             background-color: var(--background-color);
         }
 
-        /* Desplazamiento suave */
-        html {
-            scroll-behavior: smooth;
+        /* Texto con borde */
+        .text-with-border {
+            color: #ffffff;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         }
-		 .text-with-border {
-            color: #ffffff; /* Color de la letra: blanco */
-            text-shadow: 
-                -1px -1px 0 #000,  
-                 1px -1px 0 #000,  
-                -1px  1px 0 #000,  
-                 1px  1px 0 #000; /* Sombra para simular el borde negro */
+
+        .text-warning-border {
+            color: #ffc107;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         }
-		.text-warning-border {
-            color: #ffc107; /* Color de la letra: amarillo */
-            text-shadow: 
-                -1px -1px 0 #000,  
-                 1px -1px 0 #000,  
-                -1px  1px 0 #000,  
-                 2px  2px 0 #000; /* Sombra para simular el borde negro */
+
+        .text-secondary-border {
+            color: #05073A;
+            text-shadow: -1px -1px 0 #ffc107, 1px -1px 0 #ffc107, -1px 1px 0 #ffc107, 1px 1px 0 #ffc107;
         }
-		.text-secondary-border {
-            color: #05073A; /* Color de la letra: azul */
-            text-shadow: 
-                -2px -2px 0 #ffc107,  
-                 2px -2px 0 #ffc107,  
-                -2px  2px 0 #ffc107,  
-                 2px  2px 0 #ffc107; /* Sombra para simular el borde amarillo*/
+		  /* Pie de página */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 10px;
         }
+		
     </style>
 </head>
 <body>
@@ -154,12 +159,10 @@
         <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="PARROQUIA.html" class="nav-link"><h4 class="text-with-border">Inicio</h4></a>
+                <a href="PARROQUIA.html" class="nav-link">Inicio</a>
             </li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" id="catequesisDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <h4 class="text-with-border">Sacramentos</h4>
-                </a>
+                <a href="#" class="nav-link dropdown-toggle" id="catequesisDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sacramentos </a>
                 <div class="dropdown-menu" aria-labelledby="catequesisDropdown">
                     <a class="dropdown-item" href="bautizo.html">Bautizo</a>
                     <a class="dropdown-item" href="primeracomunion.html">Primera Comunión</a>
@@ -168,7 +171,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a href="CONTACTOS.html" class="nav-link"><h4 class="text-with-border">Contactos</h4></a>
+                <a href="CONTACTOS.html" class="nav-link">Contactos</a>
             </li>
         </ul>
     </div>
@@ -197,7 +200,7 @@
 					<a href="bautizo.html" class="btn btn-outline-warning"><b>Mas Informacion</b></a>
                 </div>
             </div>
-			 <div class="carousel-item" style="background-image: url( 'imagenes/primera2.jpg');">
+			 <div class="carousel-item" style="background-image: url( 'imagenes/comunion.jpg');">
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="text-warning-border">Primera Comunión </h1>
                       <h3  class="text-warning-border">Parroquia Nuestra Señora del Carmen</h3>
@@ -209,6 +212,7 @@
                     <h1 class="text-warning-border">Confirmación </h1>
                       <h3  class="text-warning-border">Parroquia Nuestra Señora del Carmen</h3>
 					<a href="confirmacion.html" class="btn btn-outline-warning"><b>Mas Informacion</b></a>
+
                 </div>
             </div>
 			 <div class="carousel-item" style="background-image: url('imagenes/matriki2.jpg');">
