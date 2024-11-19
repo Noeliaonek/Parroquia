@@ -20,7 +20,7 @@
         .navbar {
             background-color: rgba(0, 0, 0, 0.3); /* Color negro con 60% de opacidad */
             transition: background-color 0.4s ease-in-out;
-            font-family: 'Times New Roman', serif; /* Cambio a Times New Roman */
+            font-family: 'Times New Roman', serif;
         }
 
         .navbar.scrolled {
@@ -34,14 +34,14 @@
         }
 
         .nav-link {
-            color: var(--navbar-text-color) !important; /* Color del texto en el navbar */
+            color: var(--navbar-text-color) !important;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1rem; /* Reducido para móviles */
         }
 
         .nav-link:hover {
             color: var(--accent-color) !important;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Resaltar con sombra sutil */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
             transition: all 0.3s ease-in-out;
         }
 
@@ -52,58 +52,68 @@
             background-position: center;
         }
 
+        .carousel-caption {
+            bottom: 15%; /* Ajuste para móviles */
+        }
+
         .carousel-caption h1 {
-            font-size: 3.5rem;
+            font-size: calc(1.5rem + 1vw); /* Adaptable */
             font-weight: bold;
             color: var(--primary-color);
             font-family: 'Times New Roman', serif;
         }
 
-        .carousel-caption p {
-            font-size: 1.5rem;
+        .carousel-caption h2 {
+            font-size: calc(1rem + 0.5vw); /* Adaptable */
             color: var(--secondary-color);
         }
 
-        /* Botones del carrusel */
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            background-color: var(--warning-color); /* Verde oscuro */
-            border-radius: 50%;
-            padding: 10px;
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            .carousel-caption h1 {
+                font-size: 1.5rem; /* Más pequeño para móviles */
+            }
+
+            .carousel-caption h2 {
+                font-size: 1rem;
+            }
+
+            .nav-link {
+                font-size: 0.9rem; /* Ajuste para texto del menú */
+            }
+
+            .historia h1 {
+                font-size: 1.8rem; /* Encabezado más pequeño */
+            }
+
+            .historia p {
+                font-size: 0.9rem; /* Texto más pequeño */
+                line-height: 1.5; /* Espaciado ajustado */
+            }
+
+            .footer {
+                font-size: 0.9rem; /* Texto reducido en el pie */
+            }
+
+            .navbar-brand h3 {
+                font-size: 1rem; /* Texto reducido */
+            }
         }
 
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            filter: invert(100%); /* Hacemos los iconos blancos */
-        }
+        @media (max-width: 576px) {
+            .carousel-item {
+                height: 70vh; /* Carrusel más pequeño */
+            }
 
-        .carousel-control-prev,
-        .carousel-control-next {
-            outline: none; /* Sin color en el borde de los botones */
-            box-shadow: none; /* Sin sombra */
-        }
+            .carousel-caption {
+                bottom: 10%; /* Ajuste adicional */
+            }
 
-        /* Sección Historia */
-        .historia h1 {
-            font-family: 'Times New Roman', serif;
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: var(--secondary-color); /* Azul oscuro */
-        }
-
-        .historia p {
-            font-family: 'Arial', sans-serif;
-            font-size: 1.2rem;
-            line-height: 1.7;
-            color: var(--text-color); /* Color de texto oscuro */
-        }
-
-        /* Pie de página */
-        .footer {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            text-align: center;
-            padding: 10px;
+            .historia h1,
+            .historia p {
+                text-align: justify;
+                margin: 0 10px; /* Espaciado lateral */
+            }
         }
 
         /* Fondo del sitio */
@@ -111,69 +121,45 @@
             background-color: var(--background-color);
         }
 
-        /* Desplazamiento suave */
-        html {
-            scroll-behavior: smooth;
-        }
-
         /* Texto con borde */
         .text-with-border {
-            color: #ffffff; /* Color de la letra: blanco */
+            color: #ffffff;
             text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         }
 
         .text-warning-border {
-            color: #ffc107; /* Color de la letra: amarillo */
+            color: #ffc107;
             text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         }
 
         .text-secondary-border {
-            color: #05073A; /* Color de la letra: azul */
+            color: #05073A;
             text-shadow: -1px -1px 0 #ffc107, 1px -1px 0 #ffc107, -1px 1px 0 #ffc107, 1px 1px 0 #ffc107;
-        }
-
-        /* Ajuste responsivo */
-        .navbar .nav-link h4 {
-            font-size: 1rem;
-        }
-
-        .carousel-caption h1 {
-            font-size: calc(1.5rem + 2vw);
-        }
-
-        .carousel-caption h2 {
-            font-size: calc(1rem + 1vw);
-        }
-
-        .historia h1 {
-            font-size: calc(1.5rem + 1.5vw);
-        }
-
-        .historia p {
-            font-size: calc(1rem + 0.2vw);
         }
     </style>
 </head>
-<body >
+<body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md navbar-light fixed-top">
         <a class="navbar-brand" href="#">
             <img src="imagenes/logo.jpg" alt="Logo">
         </a>
-        <a class="navbar-brand" href="#"><h3 class="text-with-border"><b>Parroquia Nuestra Sra del Carmen</b></h3></a>
+        <a class="navbar-brand" href="#">
+            <h3 class="text-with-border">Parroquia Nuestra Sra del Carmen</h3>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="menu">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="PARROQUIA.html" class="nav-link "><h4 class="text-with-border">Inicio</h4></a>
+                    <a href="PARROQUIA.html" class="nav-link text-with-border">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a href="CATEQUESIS.html" class="nav-link"><h4 class="text-with-border">Sacramentos</h4></a>
+                    <a href="CATEQUESIS.html" class="nav-link text-with-border">Sacramentos</a>
                 </li>
                 <li class="nav-item">
-                    <a href="CONTACTOS.html" class="nav-link"><h4 class="text-with-border">Contactos</h4></a>
+                    <a href="CONTACTOS.html" class="nav-link text-with-border">Contactos</a>
                 </li>
             </ul>
         </div>
@@ -188,23 +174,23 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active" style="background-image: url('imagenes/parroquiaactual.jpg');">
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption">
                     <h1 class="text-warning-border">Bienvenidos</h1>
-                    <h1  class="text-warning-border">Parroquia Nuestra Señora del Carmen</h1>
+                    <h1 class="text-warning-border">Parroquia Nuestra Señora del Carmen</h1>
                 </div>
             </div>
-            <div class="carousel-item" style="background-image: url(' imagenes/parroquia3.jpg');">
-                <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-item" style="background-image: url('imagenes/parroquia3.jpg');">
+                <div class="carousel-caption">
                     <h1 class="text-warning-border">La Fe en Comunidad</h1>
-                    <h2  class="text-warning-border">Juntos en Oración y Amor.</h2>
+                    <h2 class="text-warning-border">Juntos en Oración y Amor.</h2>
                 </div>
             </div>
             <div class="carousel-item" style="background-image: url('imagenes/ig3.jpg');">
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption">
                     <h1 class="text-warning-border">Historia y Tradición</h1>
-                    <h2  class="text-warning-border">Descubre Nuestra Historia.</h2>
+                    <h2 class="text-warning-border">Descubre Nuestra Historia.</h2>
                 </div>
-            </div> 
+            </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -217,96 +203,21 @@
     </div>
 
     <!-- Sección Historia -->
-	<div class="container historia mt-5">
-    <div class="row">
-        <!-- Columna izquierda para imagen decorativa -->
-        <div class="col-md-2 text-center d-none d-md-block">
-            <img src="imagenes/img1.jpg" alt="Icono Histórico Izquierdo" class="img-fluid rounded mb-3">
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-            <img src="imagenes/confirmacion2.jpg" alt="Símbolo Religioso" class="img-fluid rounded mt-3">
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<img src="imagenes/fueramoraya.jpg" alt="Icono Histórico Izquierdo" class="img-fluid rounded mb-3">
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-            <img src="imagenes/dentromoraya.jpg" alt="Símbolo Religioso" class="img-fluid rounded mt-3">
-        </div>
-            <div class="col-md-8">
-                <h1 class="text-secondary-border">Historia</h1>
-                <p class="text-justify">
-La Parroquia Nuestra Señora del Carmen, situada en la ciudad de Villazón, posee una rica herencia espiritual que se remonta a principios del siglo XX. Los registros sacramentales conservados indican que su origen se vincula directamente con la antigua Parroquia de Moraya, cuya existencia está documentada desde el año 1900. En sus primeros años, la iglesia de Moraya fue el epicentro de la actividad religiosa en la región, sirviendo a las comunidades dispersas en la zona. </p>
-				<p class="text-justify">
-
-A medida que Villazón fue consolidándose como un núcleo urbano emergente, se tomó la decisión de trasladar la actividad parroquial a esta ciudad. Inicialmente, se estableció una capilla provisional, que comenzó a figurar en los registros bautismales a partir de 1918, y que con el tiempo se convertiría en el nuevo corazón espiritual de la localidad. En 1935, la capilla fue elevada a la categoría de parroquia, adoptando oficialmente el nombre de Nuestra Señora del Carmen y heredando todos los archivos y responsabilidades de la Parroquia de Moraya. Así, se dio continuidad a una labor pastoral que se ha mantenido ininterrumpida a lo largo de los años, contribuyendo a la vida espiritual y social de la provincia Modesto Omiste. </p>
-		<h1 class="text-secondary-border">Construcción de la Parroquia</h1>
-<p class="text-justify">
-
-La construcción de un recinto más formal para la iglesia católica en Villazón respondió a la necesidad de proporcionar un espacio digno y adecuado para la práctica de la fe. El primer lugar de culto fue una capilla ubicada en los terrenos del antiguo colegio CIEPV, lo cual marcó el inicio de una nueva era para la comunidad religiosa. Sin embargo, la creciente devoción y el desarrollo urbano demandaron la creación de un nuevo templo que pudiera acoger a un mayor número de fieles. </p>
-<p class="text-justify">
-En 1953, se erigió el edificio actual, que inicialmente fue concebido para servir como una agencia del Banco Central de Bolivia. La construcción fue ejecutada por la reconocida empresa J. A. Ballivián B., dotando al edificio de una arquitectura robusta y representativa de la época. No obstante, con el paso del tiempo y tras diversos trámites administrativos, el inmueble fue transferido a la administración municipal. Desde entonces, ha desempeñado un papel dual, albergando tanto las oficinas del Concejo Municipal en su interior como las del ejecutivo en el frente, lo cual ha permitido integrar las funciones civiles y religiosas en un solo espacio comunitario.
-
-La Parroquia, ahora conocida como Nuestra Señora del Carmen, se sitúa estratégicamente frente a la emblemática Plaza 6 de Agosto, y se ha convertido en un símbolo de la identidad local y un testimonio de la historia compartida de los habitantes de Villazón.
-</p>
-	
-            </div>
-		<!-- Columna derecha para imagen decorativa -->
-        <div class="col-md-2 text-center d-none d-md-block">
-            <img src="imagenes/santa.jpg" alt="Icono Histórico Derecho" class="img-fluid rounded mb-3">
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<img src="imagenes/virgen.jpg" alt="Icono Histórico Derecho" class="img-fluid rounded mb-3">
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-
-			<br>
-			<br>
-			<br>
-			<br>
-            <img src="imagenes/iglesia.jpg" alt="Cruz Religiosa" class="img-fluid rounded mt-3">
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-            <img src="imagenes/dentrovillazon.jpg" alt="Cruz Religiosa" class="img-fluid rounded mt-3">
-        </div>
-        </div>
+    <div class="container historia mt-5">
+        <h1 class="text-secondary-border">Historia</h1>
+        <p>La Parroquia Nuestra Señora del Carmen...</p>
     </div>
 
     <!-- Pie de página -->
     <footer class="footer mt-5 text-light">
-        Instituto Tecnologico Superior Centenario @2024 "NHM"
+        Instituto Tecnológico Superior Centenario @2024 "NHM"
     </footer>
 
     <script src="js/jquery.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>
-        // Efecto de cambio en el navbar al hacer scroll
-        $(window).scroll(function() {
+        $(window).scroll(function () {
             if ($(this).scrollTop() > 50) {
                 $('.navbar').addClass('scrolled');
             } else {
@@ -316,4 +227,3 @@ La Parroquia, ahora conocida como Nuestra Señora del Carmen, se sitúa estraté
     </script>
 </body>
 </html>
-
