@@ -17,27 +17,28 @@
         }
 
         /* Navbar */
-     .navbar {
-    background-color: rgba(0, 0, 0, 0.3); /* Color negro con 60% de opacidad */
-    transition: background-color 0.4s ease-in-out;
-    font-family: 'Times New Roman', serif; /* Cambio a Times New Roman */
-}
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.3); /* Color negro con 60% de opacidad */
+            transition: background-color 0.4s ease-in-out;
+            font-family: 'Times New Roman', serif; /* Cambio a Times New Roman */
+        }
 
         .navbar.scrolled {
             background-color: var(--primary-color); /* Amarillo suave al hacer scroll */
         }
+
         .navbar-brand img {
             height: 50px;
             width: 50px;
             border-radius: 50%; /* Imagen del logo redondeada */
         }
+
         .nav-link {
             color: var(--navbar-text-color) !important; /* Color del texto en el navbar */
             font-weight: bold;
             font-size: 1.2rem;
         }
 
-        /* Efecto hover para resaltar los enlaces del navbar */
         .nav-link:hover {
             color: var(--accent-color) !important;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Resaltar con sombra sutil */
@@ -55,8 +56,7 @@
             font-size: 3.5rem;
             font-weight: bold;
             color: var(--primary-color);
-			font-family: 'Times New Roman', serif;
-			
+            font-family: 'Times New Roman', serif;
         }
 
         .carousel-caption p {
@@ -115,29 +115,42 @@
         html {
             scroll-behavior: smooth;
         }
-		 .text-with-border {
+
+        /* Texto con borde */
+        .text-with-border {
             color: #ffffff; /* Color de la letra: blanco */
-            text-shadow: 
-                -1px -1px 0 #000,  
-                 1px -1px 0 #000,  
-                -1px  1px 0 #000,  
-                 1px  1px 0 #000; /* Sombra para simular el borde negro */
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         }
-		.text-warning-border {
+
+        .text-warning-border {
             color: #ffc107; /* Color de la letra: amarillo */
-            text-shadow: 
-                -1px -1px 0 #000,  
-                 1px -1px 0 #000,  
-                -1px  1px 0 #000,  
-                 1px  1px 0 #000; /* Sombra para simular el borde negro */
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         }
-		.text-secondary-border {
-            color: #05073A; /* Color de la letra: AZUL */
-            text-shadow: 
-                -1px -1px 0 #ffc107,  
-                 1px -1px 0 #ffc107,  
-                -1px  1px 0 #ffc107,  
-                 1px  1px 0 #ffc107; /* Sombra para simular el borde AMARILLO */
+
+        .text-secondary-border {
+            color: #05073A; /* Color de la letra: azul */
+            text-shadow: -1px -1px 0 #ffc107, 1px -1px 0 #ffc107, -1px 1px 0 #ffc107, 1px 1px 0 #ffc107;
+        }
+
+        /* Ajuste responsivo */
+        .navbar .nav-link h4 {
+            font-size: 1rem;
+        }
+
+        .carousel-caption h1 {
+            font-size: calc(1.5rem + 2vw);
+        }
+
+        .carousel-caption h2 {
+            font-size: calc(1rem + 1vw);
+        }
+
+        .historia h1 {
+            font-size: calc(1.5rem + 1.5vw);
+        }
+
+        .historia p {
+            font-size: calc(1rem + 0.2vw);
         }
     </style>
 </head>
@@ -303,3 +316,4 @@ La Parroquia, ahora conocida como Nuestra Señora del Carmen, se sitúa estraté
     </script>
 </body>
 </html>
+
