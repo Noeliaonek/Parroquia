@@ -6,216 +6,323 @@
     <title>Contactos</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Colores */
-        :root {
-            --primary-color: #ffc107; /* Amarillo suave */
-            --secondary-color: #2c3e50; /* Azul oscuro elegante */
-            --background-color: #f4f4f9; /* Gris claro para el fondo */
-            --text-color: #333; /* Color de texto oscuro */
-            --accent-color: #16a085; /* Verde oscuro sutil para detalles */
-            --navbar-text-color: #ffffff; /* Color del texto del navbar */
-        }
+   <style>
+    /* Colores */
+    :root {
+        --primary-color: #ffc107; /* Amarillo suave */
+        --secondary-color: #2c3e50; /* Azul oscuro elegante */
+        --background-color: #f4f4f9; /* Gris claro para el fondo */
+        --text-color: #333; /* Color de texto oscuro */
+        --accent-color: #16a085; /* Verde oscuro sutil para detalles */
+        --navbar-text-color: #ffffff; /* Color del texto del navbar */
+    }
 
-        /* Navbar */
-         .navbar {
-    background-color: rgba(0, 0, 0, 0.3); /* Color negro con 60% de opacidad */
-    transition: background-color 0.4s ease-in-out;
-    font-family: 'Times New Roman', serif; /* Cambio a Times New Roman */
-}
-
-        .navbar.scrolled {
-            background-color: var(--primary-color); /* Amarillo suave al hacer scroll */
-        }
-        .navbar-brand img {
-            height: 50px;
-            width: 50px;
-            border-radius: 50%; /* Imagen del logo redondeada */
-        }
-        .nav-link {
-            color: var(--navbar-text-color) !important; /* Color del texto en el navbar */
+    /* Navbar */
+    .navbar {
+        background-color: rgba(0, 0, 0, 0.3);
+        transition: background-color 0.4s ease-in-out;
+        font-family: 'Times New Roman', serif;
+    }
+    .navbar.scrolled {
+        background-color: var(--primary-color);
+    }
+    .navbar-brand img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }
+    .nav-link {
+        color: var(--navbar-text-color) !important;
+        font-weight: bold;
+        font-size: 1rem;
+    }
+    .nav-link:hover {
+        color: var(--accent-color) !important;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease-in-out;
+    }
+	       color: var(--navbar-text-color) !important;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1rem; /* Reducido para móviles */
         }
 
-        /* Efecto hover para resaltar los enlaces del navbar */
         .nav-link:hover {
             color: var(--accent-color) !important;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Resaltar con sombra sutil */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
             transition: all 0.3s ease-in-out;
         }
 
         /* Carrusel */
         .carousel-item {
-            height: 70vh;
+            height: 100vh;
             background-size: cover;
             background-position: center;
         }
 
+        .carousel-caption {
+            bottom: 15%; /* Ajuste para móviles */
+        }
+
         .carousel-caption h1 {
-            font-size: 3.5rem;
+            font-size: calc(1.5rem + 1vw); /* Adaptable */
             font-weight: bold;
             color: var(--primary-color);
-			font-family: 'Times New Roman', serif;
+            font-family: 'Times New Roman', serif;
         }
 
-        .carousel-caption p {
-            font-size: 1.5rem;
+        .carousel-caption h2 {
+            font-size: calc(1rem + 0.5vw); /* Adaptable */
             color: var(--secondary-color);
         }
 
-        /* Botones del carrusel */
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            background-color: var(--accent-color); /* Verde oscuro */
-            border-radius: 50%;
-            padding: 10px;
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            .carousel-caption h1 {
+                font-size: 1.5rem; /* Más pequeño para móviles */
+            }
+
+            .carousel-caption h2 {
+                font-size: 1rem;
+            }
+
+            .nav-link {
+                font-size: 0.9rem; /* Ajuste para texto del menú */
+            }
+
+            .historia h1 {
+                font-size: 1.8rem; /* Encabezado más pequeño */
+            }
+
+            .historia p {
+                font-size: 0.9rem; /* Texto más pequeño */
+                line-height: 1.5; /* Espaciado ajustado */
+            }
+
+            .footer {
+                font-size: 0.9rem; /* Texto reducido en el pie */
+            }
+
+            .navbar-brand h3 {
+                font-size: 1rem; /* Texto reducido */
+            }
         }
 
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            filter: invert(100%); /* Hacemos los iconos blancos */
+        @media (max-width: 576px) {
+            .carousel-item {
+                height: 70vh; /* Carrusel más pequeño */
+            }
+
+            .carousel-caption {
+                bottom: 10%; /* Ajuste adicional */
+            }
+
+            .historia h1,
+            .historia p {
+                text-align: justify;
+                margin: 0 10px; /* Espaciado lateral */
+            }
         }
 
-        .carousel-control-prev,
-        .carousel-control-next {
-            outline: none; /* Sin color en el borde de los botones */
-            box-shadow: none; /* Sin sombra */
-        }
-
-        /* Sección Historia */
-        .historia h1 {
-           font-family: 'Times New Roman', serif;
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: var(--secondary-color); /* Azul oscuro */
-        }
-
-        .historia p {
-            font-family: 'Arial', sans-serif;
-            font-size: 1.2rem;
-            line-height: 1.7;
-            color: var(--text-color); /* Color de texto oscuro */
-        }
-
-        /* Pie de página */
-        .footer {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            text-align: center;
-            padding: 10px;
-        }
-
-        /* Fondo del sitio */
-        body {
-            background-color: var(--background-color);
-        }
-
-        /* Desplazamiento suave */
-        html {
-            scroll-behavior: smooth;
-        }
-		 .carousel-item img {
-        max-height: 400px; /* Ajusta la altura máxima que desees */
-        object-fit: contain; /* Asegura que la imagen se ajuste al contenedor sin deformarse */
-        width: auto; /* Mantiene el ancho automático para que no se distorsione */
-        margin: 0 auto; /* Centra las imágenes */
+    /* Carrusel */
+    .carousel-item {
+        height: 70vh; /* Altura adaptable */
+        background-size: cover;
+        background-position: center;
     }
-		.fullscreen-bg {
-            position: relative;
-            width: 100%;
-            height: 85vh; /* Hace que la imagen ocupe toda la altura de la ventana */
-            background: url("imagenes/ig2.jpg") no-repeat center center;
-            background-size: cover; /* Asegura que la imagen cubra toda el área */
-        }
-		 .text-with-border {
-            color: #ffffff; /* Color de la letra: blanco */
-            text-shadow: 
-                -1px -1px 0 #000,  
-                 1px -1px 0 #000,  
-                -1px  1px 0 #000,  
-                 1px  1px 0 #000; /* Sombra para simular el borde negro */
-        }
-		.text-warning-border {
-            color: #ffc107; /* Color de la letra: amarillo */
-            text-shadow: 
-                -1px -1px 0 #000,  
-                 1px -1px 0 #000,  
-                -1px  1px 0 #000,  
-                 1px  1px 0 #000; /* Sombra para simular el borde negro */
-        }
-		.text-secondary-border {
-            color: #05073A; /* Color de la letra: amarillo */
-            text-shadow: 
-                -2px -2px 0 #ffc107,  
-                 2px -2px 0 #ffc107,  
-                -2px  2px 0 #ffc107,  
-                 2px  2px 0 #ffc107; /* Sombra para simular el borde negro */
-        }
-		        .fullscreen-bg .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            text-align: center;
-        }
-        .input {
-            width: 400px;
-        }
-        .buton {
-            padding-left: 50px;
-            padding-right: 50px;
-        }
-        .color {
-            background: #E4E3E3;
-            margin: 0px;
-        }
-        .tamanio {
-            width: 100px;
-            background: #E4E3E3;
-            text-align: center;
-        }
-        .map-container {
-            display: none; /* Por defecto el mapa no se muestra */
-            margin-top: 20px;
-        }
-    </style>
-	<style>
-    /* Animación de iconos */
-    .icon-animated {
-        display: inline-block;
-        animation: bounce 2s infinite; /* Repetición infinita */
+    .carousel-caption h1 {
+        font-size: calc(2rem + 1vw);
+        font-weight: bold;
+        color: var(--primary-color);
+        font-family: 'Times New Roman', serif;
+    }
+    .carousel-caption p {
+        font-size: calc(1rem + 0.5vw);
+        color: var(--secondary-color);
+    }
+    .carousel-item img {
+        max-height: 400px;
+        object-fit: contain;
+        width: auto;
+        margin: 0 auto;
     }
 
-    /* Definición de animación */
-    @keyframes bounce {
-        0%, 20%, 50%, 80%, 100% {
-            transform: translateY(0);
-        }
-        40% {
-            transform: translateY(-10px); /* Salto hacia arriba */
-        }
-        60% {
-            transform: translateY(-5px); /* Salto más pequeño */
-        }
+    /* Botones del carrusel */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: var(--accent-color);
+        border-radius: 50%;
+        padding: 10px;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        filter: invert(100%);
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+        outline: none;
+        box-shadow: none;
     }
 
-    /* Colores */
-    .text-dark {
-        color: var(--text-color);
+    /* Fondo principal */
+    .fullscreen-bg {
+        position: relative;
+        width: 100%;
+        height: 85vh;
+        background: url("imagenes/ig2.jpg") no-repeat center center;
+        background-size: cover;
+    }
+    .fullscreen-bg .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
     }
 
+    /* Texto con bordes */
+    .text-with-border {
+        color: #ffffff;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+    .text-warning-border {
+        color: #ffc107;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+    .text-secondary-border {
+        color: #05073A;
+        text-shadow: -2px -2px 0 #ffc107, 2px -2px 0 #ffc107, -2px 2px 0 #ffc107, 2px 2px 0 #ffc107;
+    }
+
+    /* Formulario */
+    .input {
+        width: 100%;
+    }
+    .buton {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    /* Tarjetas */
+    .color {
+        background: #E4E3E3;
+        margin: 0px;
+    }
+    .tamanio {
+        width: 100px;
+        background: #E4E3E3;
+        text-align: center;
+    }
     .card-group .card-body {
         text-align: center;
         padding: 20px;
         transition: transform 0.3s ease-in-out;
     }
-
-    /* Efecto hover para tarjetas */
     .card:hover .card-body {
-        transform: scale(1.1); /* Efecto de agrandamiento */
+        transform: scale(1.1);
     }
+
+    /* Iconos de contacto */
+    .icon-animated {
+        font-size: 2.5rem; /* Ajustar el tamaño del icono */
+        color: var(--text-color);
+        margin-bottom: 10px;
+        animation: bounce 2s infinite;
+    }
+
+    /* Ajustes para pantallas pequeñas */
+    @media (max-width: 768px) {
+        .icon-animated {
+            font-size: 2rem; /* Reducir tamaño de iconos en tablets */
+        }
+        .fullscreen-bg {
+            height: 60vh;
+        }
+        .fullscreen-bg .content h1 {
+            font-size: 2rem;
+        }
+        .fullscreen-bg .content h3 {
+            font-size: 1.2rem;
+        }
+    }
+    @media (max-width: 576px) {
+        .icon-animated {
+            font-size: 1.8rem; /* Reducir tamaño de iconos en móviles */
+        }
+        .fullscreen-bg {
+            height: 40vh;
+        }
+        .fullscreen-bg .content h1 {
+            font-size: 1.5rem;
+        }
+        .fullscreen-bg .content h3 {
+            font-size: 1rem;
+        }
+    }
+
+    /* Mapa */
+    .map-container {
+        display: none;
+        margin-top: 20px;
+    }
+
+    /* Animación de iconos */
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-5px);
+        }
+    }
+
+    /* Pie de página */
+    .footer {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* Fondo del sitio */
+    body {
+        background-color: var(--background-color);
+    }
+
+    /* Desplazamiento suave */
+    html {
+        scroll-behavior: smooth;
+    }
+	   .map-container {
+    width: 100%; /* Asegura que ocupe el ancho del contenedor */
+    max-width: 800px; /* Máximo ancho en pantallas grandes */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 10px 0; /* Espaciado superior e inferior */
+}
+
+.google-map {
+    width: 100%; /* Asegura que el mapa se ajuste al contenedor */
+    height: 400px; /* Altura predeterminada para pantallas grandes */
+    border: 0; /* Sin bordes */
+}
+
+/* Ajustes para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    .google-map {
+        height: 300px; /* Altura reducida */
+    }
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 576px) {
+    .google-map {
+        height: 200px; /* Altura reducida para móviles */
+    }
+}
+
 </style>
 </head>
 <body>
@@ -224,20 +331,22 @@
         <a class="navbar-brand" href="#">
             <img src="imagenes/logo.jpg" alt="Logo">
         </a>
-        <a class="navbar-brand" href="#"><h3 class="text-with-border "><b>Parroquia Nuestra Sra Del Carmen</b></h3></a>
+        <a class="navbar-brand" href="#">
+            <h3 class="text-with-border">Parroquia Nuestra Sra del Carmen</h3>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="menu">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="PARROQUIA.html" class="nav-link "><h4 class="text-with-border">Inicio</h4></a>
+                    <a href="PARROQUIA.html" class="nav-link text-with-border">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a href="CATEQUESIS.html" class="nav-link"><h4 class="text-with-border">Sacramentos</h4></a>
+                    <a href="CATEQUESIS.html" class="nav-link text-with-border">Sacramentos</a>
                 </li>
                 <li class="nav-item">
-                    <a href="CONTACTOS.html" class="nav-link"><h4 class="text-with-border">Contactos</h4></a>
+                    <a href="CONTACTOS.html" class="nav-link text-with-border">Contactos</a>
                 </li>
             </ul>
         </div>
@@ -285,30 +394,39 @@
                     </form>
                 </table>
                 <!-- Contenedor del mapa -->
-                <div class="map-container" id="mapContainer">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d301.17360197849264!2d-65.59827618294773!3d-22.090973219957355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9406a441cccedaff%3A0x32c2d90c896586c1!2sPlaza%206%20De%20Agosto!5e0!3m2!1sen!2sbo!4v1697040481998!5m2!1sen!2sbo" 
-                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+               <div class="map-container" id="mapContainer">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d301.17360197849264!2d-65.59827618294773!3d-22.090973219957355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9406a441cccedaff%3A0x32c2d90c896586c1!2sPlaza%206%20De%20Agosto!5e0!3m2!1sen!2sbo!4v1697040481998!5m2!1sen!2sbo" 
+        class="google-map"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
             </div>
         </div>
     </div>
 <div class="container-fluid text-muted d1 text-center p-3 mt-3 color">
     <div class="row">
-        <div class="col">
-            <div class="card-group mt-3">
-                <div class="card">
+        <div class="col-12">
+            <div class="card-group d-flex flex-column flex-md-row align-items-stretch mt-3">
+                <div class="card mb-3 mb-md-0">
                     <div class="card-body color">
+						<a href="tel:+59171950606" class="text-decoration-none">
                         <i class="fas fa-phone-alt fa-3x text-dark mb-3 icon-animated"></i>
                         <p class="text-muted">Teléfono: (+591) 71950606</p>
+							</a>
+                    </div>
+                </div>
+                <div class="card mb-3 mb-md-0">
+                    <div class="card-body color">
+						<a href="mailto:parroquiansdelcarmen@gmail.com" class="text-decoration-none">
+                        <i class="fas fa-envelope fa-3x text-dark mb-3 icon-animated"></i>
+                        <p class="text-muted">Correo: parroquiansdelcarmen@gmail.com</p>
+							</a>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-body color">
-                        <i class="fas fa-envelope fa-3x text-dark mb-3 icon-animated"></i>
-                        <p class="text-muted">Correo: parroquiansdelcarmen@gmail.com</p>
-                    </div>
-                </div>
-                <div class="card" align="center">
                     <div class="card-body color">
                         <i class="fas fa-map-marker-alt fa-3x text-dark mb-3 icon-animated" onclick="toggleMap()"></i>
                         <p class="text-muted">Dirección: Calle Gilberto Cortez frente a la Plaza 6 de Agosto, Villazón, Bolivia.</p>
