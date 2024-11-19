@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catequesis</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        /* Colores */
+        :root {
+            --primary-color: #ffc107; /* Amarillo suave */
+            --secondary-color: #2c3e50; /* Azul oscuro elegante */
+            --background-color: #f4f4f9; /* Gris claro para el fondo */
+            --text-color: #333; /* Color de texto oscuro */
+            --accent-color: #16a085; /* Verde oscuro sutil para detalles */
+            --navbar-text-color: #ffffff; /* Color del texto del navbar */
+        }
+
+        /* Navbar */
+       
+		  .navbar {
+    background-color: rgba(0, 0, 0, 0.3); /* Color negro con 60% de opacidad */
+    transition: background-color 0.4s ease-in-out;
+    font-family: 'Times New Roman', serif; /* Cambio a Times New Roman */
+}
+
+        .navbar.scrolled {
+            background-color: var(--primary-color); /* Amarillo suave al hacer scroll */
+        }
+        .navbar-brand img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%; /* Imagen del logo redondeada */
+        }
+        .nav-link {
+            color: var(--navbar-text-color) !important; /* Color del texto en el navbar */
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Efecto hover para resaltar los enlaces del navbar */
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Resaltar con sombra sutil */
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Carrusel */
+        .carousel-item {
+            height: 80vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-caption h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+			font-family: 'Times New Roman', serif;
+        }
+
+        .carousel-caption p {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        /* Botones del carrusel */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: var(--warning-color); /* Verde oscuro */
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(100%); /* Hacemos los iconos blancos */
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            outline: none; /* Sin color en el borde de los botones */
+            box-shadow: none; /* Sin sombra */
+        }
+
+        /* Sección Historia */
+        .historia h1 {
+          font-family: 'Times New Roman', serif;
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--secondary-color); /* Azul oscuro */
+        }
+
+        .historia p {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: var(--text-color); /* Color de texto oscuro */
+        }
+
+        /* Pie de página */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Fondo del sitio */
+        body {
+            background-color: var(--background-color);
+        }
+
+        /* Desplazamiento suave */
+        html {
+            scroll-behavior: smooth;
+        }
+		 .text-with-border {
+            color: #ffffff; /* Color de la letra: blanco */
+            text-shadow: 
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,  
+                -1px  1px 0 #000,  
+                 1px  1px 0 #000; /* Sombra para simular el borde negro */
+        }
+		.text-warning-border {
+            color: #ffc107; /* Color de la letra: amarillo */
+            text-shadow: 
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,  
+                -1px  1px 0 #000,  
+                 2px  2px 0 #000; /* Sombra para simular el borde negro */
+        }
+		.text-secondary-border {
+            color: #05073A; /* Color de la letra: azul */
+            text-shadow: 
+                -2px -2px 0 #ffc107,  
+                 2px -2px 0 #ffc107,  
+                -2px  2px 0 #ffc107,  
+                 2px  2px 0 #ffc107; /* Sombra para simular el borde amarillo*/
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="imagenes/logo.jpg" alt="Logo">
+        </a>
+        <a class="navbar-brand" href="#"><h3 class="text-with-border"><b>Parroquia Nuestra Sra del Carmen</b></h3></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="PARROQUIA.html" class="nav-link"><h4 class="text-with-border">Inicio</h4></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" id="catequesisDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <h4 class="text-with-border">Sacramentos</h4>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="catequesisDropdown">
+                    <a class="dropdown-item" href="bautizo.html">Bautizo</a>
+                    <a class="dropdown-item" href="primeracomunion.html">Primera Comunión</a>
+                    <a class="dropdown-item" href="confirmacion.html">Confirmación</a>
+                    <a class="dropdown-item" href="matrimonio.html">Matrimonio</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="CONTACTOS.html" class="nav-link"><h4 class="text-with-border">Contactos</h4></a>
+            </li>
+        </ul>
+    </div>
+    </nav> 
+
+    <!-- Carrusel -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>  
+			<li data-target="#carouselExampleCaptions" data-slide-to="2"></li>  
+			<li data-target="#carouselExampleCaptions" data-slide-to="3"></li>  
+			<li data-target="#carouselExampleCaptions" data-slide-to="4"></li>  
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('imagenes/Designer (1).jpeg');">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="text-warning-border">Sacramentos </h1>
+                    <h3  class="text-warning-border">Parroquia Nuestra Señora del Carmen</h3>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('imagenes/bautizo2.jpg');">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="text-warning-border">Bautizo </h1>
+                     <h3  class="text-warning-border">Parroquia Nuestra Señora del Carmen</h3>
+					<a href="bautizo.html" class="btn btn-outline-warning"><b>Mas Informacion</b></a>
+                </div>
+            </div>
+			 <div class="carousel-item" style="background-image: url( 'imagenes/primera2.jpg');">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="text-warning-border">Primera Comunión </h1>
+                      <h3  class="text-warning-border">Parroquia Nuestra Señora del Carmen</h3>
+					<a href="primeracomunion.html" class="btn btn-outline-warning"><b>Mas Informacion</b></a>
+                </div>
+            </div>
+			 <div class="carousel-item" style="background-image: url('imagenes/confir2.jpg');">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="text-warning-border">Confirmación </h1>
+                      <h3  class="text-warning-border">Parroquia Nuestra Señora del Carmen</h3>
+					<a href="confirmacion.html" class="btn btn-outline-warning"><b>Mas Informacion</b></a>
+                </div>
+            </div>
+			 <div class="carousel-item" style="background-image: url('imagenes/matriki2.jpg');">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="text-warning-border">Matrimonio</h1>
+                      <h3  class="text-warning-border">Parroquia Nuestra Señora del Carmen</h3>
+					<a href="matrimonio.html" class="btn btn-outline-warning"><b>Mas Informacion</b></a>
+                </div>
+            </div>
+            
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+
+    <!-- Sección Historia -->
+    <div class="container historia mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-secondary-border">Sacramentos</h1>
+                <p class="text-justify">
+					Los sacramentos son rituales sagrados dentro de la Iglesia católica, que sirven para expresar la fe de los creyentes y su compromiso con la comunidad cristiana. La palabra "sacramento" viene del latín sacramentum, que en la Antigua Roma significaba un juramento de lealtad al Estado y a sus dioses. Más adelante, cuando los escritos cristianos se tradujeron al latín, se usó este término para describir sus ritos religiosos, adaptándolo del griego mystérion, que significa "secreto". De esta manera, los sacramentos se convirtieron en actos de compromiso con la fe cristiana.
+
+
+
+
+</p>
+				<p class="text-justify">
+					En la Iglesia católica, los sacramentos son rituales mediante los cuales los creyentes muestran públicamente su deseo de formar parte de la comunidad de fieles y vivir según las enseñanzas de Jesús. Estos ritos son realizados oficialmente por un sacerdote y se llevan a cabo de manera solemne, aunque en ciertas circunstancias, algunos pueden ser administrados sin un representante de la Iglesia.
+</p>
+				<p class="text-justify">
+				A lo largo de la historia, las reglas para llevar a cabo los sacramentos han sido establecidas y ajustadas en reuniones de líderes religiosos. El Concilio Vaticano II, celebrado en 1959 bajo la dirección del Papa Juan XXIII, estableció las normas actuales para estos rituales, adaptándolos al contexto del mundo moderno.
+				</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer class="footer mt-5 text-light">
+        Instituto Tecnologico Superior Centenario @2024 "NHM"
+    </footer>
+
+    <script src="js/jquery.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        // Efecto de cambio en el navbar al hacer scroll
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar').addClass('scrolled');
+            } else {
+                $('.navbar').removeClass('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

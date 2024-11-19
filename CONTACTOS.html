@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactos</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Colores */
+        :root {
+            --primary-color: #ffc107; /* Amarillo suave */
+            --secondary-color: #2c3e50; /* Azul oscuro elegante */
+            --background-color: #f4f4f9; /* Gris claro para el fondo */
+            --text-color: #333; /* Color de texto oscuro */
+            --accent-color: #16a085; /* Verde oscuro sutil para detalles */
+            --navbar-text-color: #ffffff; /* Color del texto del navbar */
+        }
+
+        /* Navbar */
+         .navbar {
+    background-color: rgba(0, 0, 0, 0.3); /* Color negro con 60% de opacidad */
+    transition: background-color 0.4s ease-in-out;
+    font-family: 'Times New Roman', serif; /* Cambio a Times New Roman */
+}
+
+        .navbar.scrolled {
+            background-color: var(--primary-color); /* Amarillo suave al hacer scroll */
+        }
+        .navbar-brand img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%; /* Imagen del logo redondeada */
+        }
+        .nav-link {
+            color: var(--navbar-text-color) !important; /* Color del texto en el navbar */
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Efecto hover para resaltar los enlaces del navbar */
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Resaltar con sombra sutil */
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Carrusel */
+        .carousel-item {
+            height: 70vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-caption h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+			font-family: 'Times New Roman', serif;
+        }
+
+        .carousel-caption p {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        /* Botones del carrusel */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: var(--accent-color); /* Verde oscuro */
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(100%); /* Hacemos los iconos blancos */
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            outline: none; /* Sin color en el borde de los botones */
+            box-shadow: none; /* Sin sombra */
+        }
+
+        /* Sección Historia */
+        .historia h1 {
+           font-family: 'Times New Roman', serif;
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--secondary-color); /* Azul oscuro */
+        }
+
+        .historia p {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: var(--text-color); /* Color de texto oscuro */
+        }
+
+        /* Pie de página */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Fondo del sitio */
+        body {
+            background-color: var(--background-color);
+        }
+
+        /* Desplazamiento suave */
+        html {
+            scroll-behavior: smooth;
+        }
+		 .carousel-item img {
+        max-height: 400px; /* Ajusta la altura máxima que desees */
+        object-fit: contain; /* Asegura que la imagen se ajuste al contenedor sin deformarse */
+        width: auto; /* Mantiene el ancho automático para que no se distorsione */
+        margin: 0 auto; /* Centra las imágenes */
+    }
+		.fullscreen-bg {
+            position: relative;
+            width: 100%;
+            height: 85vh; /* Hace que la imagen ocupe toda la altura de la ventana */
+            background: url("imagenes/ig2.jpg") no-repeat center center;
+            background-size: cover; /* Asegura que la imagen cubra toda el área */
+        }
+		 .text-with-border {
+            color: #ffffff; /* Color de la letra: blanco */
+            text-shadow: 
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,  
+                -1px  1px 0 #000,  
+                 1px  1px 0 #000; /* Sombra para simular el borde negro */
+        }
+		.text-warning-border {
+            color: #ffc107; /* Color de la letra: amarillo */
+            text-shadow: 
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,  
+                -1px  1px 0 #000,  
+                 1px  1px 0 #000; /* Sombra para simular el borde negro */
+        }
+		.text-secondary-border {
+            color: #05073A; /* Color de la letra: amarillo */
+            text-shadow: 
+                -2px -2px 0 #ffc107,  
+                 2px -2px 0 #ffc107,  
+                -2px  2px 0 #ffc107,  
+                 2px  2px 0 #ffc107; /* Sombra para simular el borde negro */
+        }
+		        .fullscreen-bg .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+        }
+        .input {
+            width: 400px;
+        }
+        .buton {
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        .color {
+            background: #E4E3E3;
+            margin: 0px;
+        }
+        .tamanio {
+            width: 100px;
+            background: #E4E3E3;
+            text-align: center;
+        }
+        .map-container {
+            display: none; /* Por defecto el mapa no se muestra */
+            margin-top: 20px;
+        }
+    </style>
+	<style>
+    /* Animación de iconos */
+    .icon-animated {
+        display: inline-block;
+        animation: bounce 2s infinite; /* Repetición infinita */
+    }
+
+    /* Definición de animación */
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px); /* Salto hacia arriba */
+        }
+        60% {
+            transform: translateY(-5px); /* Salto más pequeño */
+        }
+    }
+
+    /* Colores */
+    .text-dark {
+        color: var(--text-color);
+    }
+
+    .card-group .card-body {
+        text-align: center;
+        padding: 20px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* Efecto hover para tarjetas */
+    .card:hover .card-body {
+        transform: scale(1.1); /* Efecto de agrandamiento */
+    }
+</style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="imagenes/logo.jpg" alt="Logo">
+        </a>
+        <a class="navbar-brand" href="#"><h3 class="text-with-border "><b>Parroquia Nuestra Sra Del Carmen</b></h3></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="PARROQUIA.html" class="nav-link "><h4 class="text-with-border">Inicio</h4></a>
+                </li>
+                <li class="nav-item">
+                    <a href="CATEQUESIS.html" class="nav-link"><h4 class="text-with-border">Sacramentos</h4></a>
+                </li>
+                <li class="nav-item">
+                    <a href="CONTACTOS.html" class="nav-link"><h4 class="text-with-border">Contactos</h4></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="fullscreen-bg">
+        <div class="content">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+            <h1 class="text-warning-border text-center" ><b>CONTACTOS</b></h1>
+            <p><h3 class="text-warning-border text-center"><b>Parroquia Nuestra Señora Del Carmen</b></h3></p>
+        </div>
+    </div>
+
+    <!-- Sección Historia -->
+     <!-- El resto de tu código HTML -->
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12 container">
+                <table align="right" border="0" cellspacing="3" width="300">
+                    <form action="procesar.php" method="post" enctype="application/x-www-form-urlencoded">
+                        <tr><td>Tu nombre (requerido)</td></tr>
+                        <tr>
+                            <td colspan="2"><input class="input" type="text" name="nom" required placeholder="ingrese su nombre"></td>
+                        </tr>
+                        <tr><td>Tu correo electrónico (requerido)</td></tr>
+                        <tr>
+                            <td colspan="2"><input class="input" type="email" name="mail" placeholder="correo electrónico"></td>
+                        </tr>
+                        <tr><td>Escribe tu mensaje</td></tr>
+                        <tr>
+                            <td colspan="2"><textarea placeholder="escriba su mensaje aquí" class="input" rows="5" name="message"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="right">
+                                <button type="submit" class="buton btn-info">Enviar</button>
+                            </td>
+                        </tr>
+                    </form>
+                </table>
+                <!-- Contenedor del mapa -->
+                <div class="map-container" id="mapContainer">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d301.17360197849264!2d-65.59827618294773!3d-22.090973219957355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9406a441cccedaff%3A0x32c2d90c896586c1!2sPlaza%206%20De%20Agosto!5e0!3m2!1sen!2sbo!4v1697040481998!5m2!1sen!2sbo" 
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container-fluid text-muted d1 text-center p-3 mt-3 color">
+    <div class="row">
+        <div class="col">
+            <div class="card-group mt-3">
+                <div class="card">
+                    <div class="card-body color">
+                        <i class="fas fa-phone-alt fa-3x text-dark mb-3 icon-animated"></i>
+                        <p class="text-muted">Teléfono: (+591) 71950606</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body color">
+                        <i class="fas fa-envelope fa-3x text-dark mb-3 icon-animated"></i>
+                        <p class="text-muted">Correo: parroquiansdelcarmen@gmail.com</p>
+                    </div>
+                </div>
+                <div class="card" align="center">
+                    <div class="card-body color">
+                        <i class="fas fa-map-marker-alt fa-3x text-dark mb-3 icon-animated" onclick="toggleMap()"></i>
+                        <p class="text-muted">Dirección: Calle Gilberto Cortez frente a la Plaza 6 de Agosto, Villazón, Bolivia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Pie de página -->
+    <footer class="footer mt-5 text-light">
+        Instituto Tecnologico Superior Centenario @2024 "NHM"
+    </footer>
+
+    <script src="js/jquery.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        // Efecto de cambio en el navbar al hacer scroll
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar').addClass('scrolled');
+            } else {
+                $('.navbar').removeClass('scrolled');
+            }
+        });
+		function toggleMap() {
+            var mapContainer = document.getElementById("mapContainer");
+            if (mapContainer.style.display === "none" || mapContainer.style.display === "") {
+                mapContainer.style.display = "block";
+            } else {
+                mapContainer.style.display = "none";
+            }
+        }
+    </script>
+	
+</body>
+</html>
