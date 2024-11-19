@@ -5,57 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bautizo</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <style>
-        /* Colores */
-        :root {
-            --primary-color: #ffc107; /* Amarillo suave */
-            --secondary-color: #2c3e50; /* Azul oscuro elegante */
-            --background-color: #f4f4f9; /* Gris claro para el fondo */
-            --text-color: #333; /* Color de texto oscuro */
-            --accent-color: #16a085; /* Verde oscuro sutil para detalles */
-            --navbar-text-color: #ffffff; /* Color del texto del navbar */
-        }
+   <style>
+    /* Colores */
+    :root {
+        --primary-color: #ffc107; /* Amarillo suave */
+        --secondary-color: #2c3e50; /* Azul oscuro elegante */
+        --background-color: #f4f4f9; /* Gris claro para el fondo */
+        --text-color: #333; /* Color de texto oscuro */
+        --accent-color: #16a085; /* Verde oscuro sutil para detalles */
+        --navbar-text-color: #ffffff; /* Color del texto del navbar */
+    }
 
-        /* Navbar */
-       .navbar {
-    background-color: rgba(0, 0, 0, 0.3); /* Color negro con 60% de opacidad */
-    transition: background-color 0.4s ease-in-out;
-    font-family: 'Times New Roman', serif; /* Cambio a Times New Roman */
-		}
+    /* Navbar */
+    .navbar {
+        background-color: rgba(0, 0, 0, 0.3); /* Color negro con 60% de opacidad */
+        transition: background-color 0.4s ease-in-out;
+        font-family: 'Times New Roman', serif; /* Cambio a Times New Roman */
+    }
 
-        .navbar.scrolled {
-            background-color: var(--primary-color); /* Amarillo suave al hacer scroll */
-        }
-        .navbar-brand img {
-            height: 50px;
-            width: 50px;
-            border-radius: 50%; /* Imagen del logo redondeada */
-        }
-        .nav-link {
-            color: var(--navbar-text-color) !important; /* Color del texto en el navbar */
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
+    .navbar.scrolled {
+        background-color: var(--primary-color); /* Amarillo suave al hacer scroll */
+    }
 
-        /* Efecto hover para resaltar los enlaces del navbar */
-        .nav-link:hover {
-            color: var(--accent-color) !important;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Resaltar con sombra sutil */
-            transition: all 0.3s ease-in-out;
-        }
+    .navbar-brand img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%; /* Imagen del logo redondeada */
+    }
 
-           /* Carrusel */
+    .nav-link {
+        color: var(--navbar-text-color) !important; /* Color del texto en el navbar */
+        font-weight: bold;
+        font-size: 1rem; /* Reducido para móviles */
+    }
+
+    .nav-link:hover {
+        color: var(--accent-color) !important;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Carrusel */
     .carousel-item {
-        height: 70vh; /* Altura fija para el carrusel */
+        height: 100vh;
         background-size: cover;
         background-position: center;
     }
 
     .carousel-item img {
-        height: 100%; /* Ajusta la altura completa del contenedor */
-        width: 100%; /* Asegura que ocupe el ancho del contenedor */
-        object-fit: cover; /* Mantiene proporciones al recortar la imagen */
-        object-position: center; /* Centra la imagen dentro del contenedor */
+        max-height: 400px; /* Ajusta la altura máxima que desees */
+        object-fit: contain; /* Asegura que la imagen se ajuste al contenedor sin deformarse */
+        width: auto; /* Mantiene el ancho automático para que no se distorsione */
+        margin: 0 auto; /* Centra las imágenes */
+    }
+
+    .carousel-caption {
+        bottom: 15%; /* Ajuste para móviles */
+    }
+
+    .carousel-caption h1 {
+        font-size: calc(1.5rem + 1vw); /* Adaptable */
+        font-weight: bold;
+        color: var(--primary-color);
+        font-family: 'Times New Roman', serif;
+    }
+
+    .carousel-caption h2 {
+        font-size: calc(1rem + 0.5vw); /* Adaptable */
+        color: var(--secondary-color);
     }
 
     .carousel-control-prev,
@@ -72,10 +89,6 @@
     .carousel-control-next-icon {
         width: 40px; /* Tamaño del icono */
         height: 40px; /* Tamaño del icono */
-        background-image: none; /* Elimina imágenes predeterminadas */
-        content: ""; /* Limpia el contenido original */
-        display: inline-block;
-        border: none; /* Sin bordes */
         background-size: contain; /* Asegura que el tamaño se ajuste */
     }
 
@@ -88,77 +101,109 @@
         background: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="%23FFFFFF" viewBox="0 0 16 16"%3E%3Cpath d="M4.646 1.646a.5.5 0 0 0 0 .708L9.293 7 4.646 11.646a.5.5 0 0 0 .708.708l5-5a.5.5 0 0 0 0-.708l-5-5a.5.5 0 0 0-.708 0z"/%3E%3C/svg%3E') no-repeat center;
     }
 
-        /* Sección Historia */
+    /* Fondo del sitio */
+    body {
+        background-color: var(--background-color);
+    }
+
+    /* Texto con borde */
+    .text-with-border {
+        color: #ffffff; /* Color de la letra: blanco */
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+
+    .text-warning-border {
+        color: #ffc107; /* Color de la letra: amarillo */
+        text-shadow: -2px -2px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 2px 0 #000;
+        font-family: 'Times New Roman', serif;
+    }
+
+    .text-secondary-border {
+        color: #05073A; /* Color de la letra: amarillo */
+        text-shadow: -2px -2px 0 #ffc107, 2px -2px 0 #ffc107, -2px 2px 0 #ffc107, 2px 2px 0 #ffc107;
+    }
+
+    /* Sección Historia */
+    .historia h1 {
+        font-family: 'Times New Roman', serif;
+        font-size: 3.5rem;
+        font-weight: bold;
+        color: var(--secondary-color); /* Azul oscuro */
+    }
+
+    .historia p {
+        font-family: 'Arial', sans-serif;
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color: var(--text-color); /* Color de texto oscuro */
+    }
+
+    /* Fondo completo */
+    .fullscreen-bg {
+        position: relative;
+        width: 100%;
+        height: 70vh; /* Hace que la imagen ocupe toda la altura de la ventana */
+        background: url("imagenes/bAUTIZO1.jpg") no-repeat center center;
+        background-size: cover; /* Asegura que la imagen cubra toda el área */
+    }
+
+    /* Pie de página */
+    .footer {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* Ajustes responsivos */
+    @media (max-width: 768px) {
+        .carousel-caption h1 {
+            font-size: 1.5rem; /* Más pequeño para móviles */
+        }
+
+        .carousel-caption h2 {
+            font-size: 1rem;
+        }
+
+        .nav-link {
+            font-size: 0.9rem; /* Ajuste para texto del menú */
+        }
+
         .historia h1 {
-            font-family: 'Times New Roman', serif;
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: var(--secondary-color); /* Azul oscuro */
+            font-size: 1.8rem; /* Encabezado más pequeño */
         }
 
         .historia p {
-            font-family: 'Arial', sans-serif;
-            font-size: 1.2rem;
-            line-height: 1.7;
-            color: var(--text-color); /* Color de texto oscuro */
+            font-size: 0.9rem; /* Texto más pequeño */
+            line-height: 1.5; /* Espaciado ajustado */
         }
 
-        /* Pie de página */
         .footer {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            text-align: center;
-            padding: 10px;
+            font-size: 0.9rem; /* Texto reducido en el pie */
         }
 
-        /* Fondo del sitio */
-        body {
-            background-color: var(--background-color);
+        .navbar-brand h3 {
+            font-size: 1rem; /* Texto reducido */
         }
-
-        /* Desplazamiento suave */
-        html {
-            scroll-behavior: smooth;
-        }
-		 .carousel-item img {
-        max-height: 400px; /* Ajusta la altura máxima que desees */
-        object-fit: contain; /* Asegura que la imagen se ajuste al contenedor sin deformarse */
-        width: auto; /* Mantiene el ancho automático para que no se distorsione */
-        margin: 0 auto; /* Centra las imágenes */
     }
-		.fullscreen-bg {
-            position: relative;
-            width: 100%;
-            height: 70vh; /* Hace que la imagen ocupe toda la altura de la ventana */
-            background: url("imagenes/bAUTIZO1.jpg") no-repeat center center;
-            background-size: cover; /* Asegura que la imagen cubra toda el área */
+
+    @media (max-width: 576px) {
+        .carousel-item {
+            height: 70vh; /* Carrusel más pequeño */
         }
-		 .text-with-border {
-            color: #ffffff; /* Color de la letra: blanco */
-            text-shadow: 
-                -1px -1px 0 #000,  
-                 1px -1px 0 #000,  
-                -1px  1px 0 #000,  
-                 1px  1px 0 #000; /* Sombra para simular el borde negro */
+
+        .carousel-caption {
+            bottom: 10%; /* Ajuste adicional */
         }
-		.text-warning-border {
-            color: #ffc107; /* Color de la letra: amarillo */
-            text-shadow: 
-                -2px -2px 0 #000,  
-                 1px -1px 0 #000,  
-                -1px  1px 0 #000,  
-                 1px  2px 0 #000; /* Sombra para simular el borde negro */
-			font-family: 'Times New Roman', serif;
+
+        .historia h1,
+        .historia p {
+            text-align: justify;
+            margin: 0 10px; /* Espaciado lateral */
         }
-		.text-secondary-border {
-            color: #05073A; /* Color de la letra: amarillo */
-            text-shadow: 
-                -2px -2px 0 #ffc107,  
-                 2px -2px 0 #ffc107,  
-                -2px  2px 0 #ffc107,  
-                 2px  2px 0 #ffc107; /* Sombra para simular el borde negro */
-        }
-    </style>
+    }
+</style>
+
 </head>
 <body>
     <!-- Navbar -->
